@@ -11,24 +11,22 @@ from setting import *
 SCREEN_WD = 800
 SCREEN_HT = 800
 TARGET_FPS = 60
- 
+
+space = make_space() 
 screen = pygame.display.set_mode((SCREEN_WD, SCREEN_HT), 0, 32)
 clock = pygame.time.Clock()
 draw_options = pymunk.pygame_util.DrawOptions(screen)
+space.debug_draw(draw_options)
 
-space = make_space()
-
-floor = 10
-
-for i in range(floor-1):
-    print(i)
-    body, poly = make_box()
+floor = 12
+for i in range(floor):
+    y =  785 - (i * 30) -10
+    body, poly = make_box(y)
     add_box(space, body, poly)
 
-body, poly = make_box((floor-1)*3)
-body.apply_force_at_local_point((0, 5), (0, 300))
+body.apply_impulse_at_local_point((0, 50), (100, 345))
 
-timeStep = 1.0 / 60
+timeStep = 1.0 / 120
  
 running = True
 while running:
