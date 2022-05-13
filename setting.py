@@ -1,5 +1,4 @@
 import pymunk
-import pygame
 
 def make_space():
     space = pymunk.Space()
