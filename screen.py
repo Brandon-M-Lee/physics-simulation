@@ -18,13 +18,17 @@ clock = pygame.time.Clock()
 draw_options = pymunk.pygame_util.DrawOptions(screen)
 space.debug_draw(draw_options)
 
-floor = 12
+floor = 17
 for i in range(floor):
+    if i<3:
+        width = 45
+    else:
+        width = 30
     y =  785 - (i * 30) -10
-    body, poly = make_box(y)
+    body, poly = make_box(y, width)
     add_box(space, body, poly)
 
-body.apply_impulse_at_local_point((0, 50), (100, 345))
+body.apply_impulse_at_world_point((0, 20*10**7), (100, 495))
 
 timeStep = 1.0 / 120
  

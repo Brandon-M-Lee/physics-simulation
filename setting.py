@@ -14,11 +14,11 @@ def make_space():
 
     return space
  
-def make_box(y):
-    body = pymunk.Body(10, 100)
+def make_box(y, width):
+    body = pymunk.Body(4.705*10**7, 1254*10**6)
     body.position = (100, y)
-    poly = pymunk.Poly.create_box(body, (30, 30))
-    poly.friction = 1
+    poly = pymunk.Poly.create_box(body, (width, 30))
+    poly.friction = 0.7
     return body, poly
 
 def add_box(space, body, poly):
